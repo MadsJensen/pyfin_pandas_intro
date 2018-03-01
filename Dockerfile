@@ -24,8 +24,9 @@ ENV PATH /opt/conda/envs/p2/bin:$PATH
 ENV CONDA_DEFAULT_ENV p2
 ENV CONDA_PREFIX /opt/conda/envs/p2
 
-RUN pip install mne nibabel nitime pysurfer matplotlib jupyterlab nilearn pandas && \
+RUN pip install mne nibabel nitime pysurfer matplotlib jupyterlab nilearn \
+    pandas-profiling && \
     chown -R jovyan: /home/jovyan/Tutorial
 
 USER jovyan
-WORKDIR /home/jovyan/Tutorial
+# WORKDIR /home/jovyan/Tutorial
