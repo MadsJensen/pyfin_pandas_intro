@@ -10,23 +10,22 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN git clone git@github.com:MadsJensen/pyfin_pandas_intro.git \
-    /home/jovyan/Tutorial && \
+RUN git clone https://github.com/MadsJensen/pyfin_pandas_intro.git \
+    /home/jovyan//Tutorial && \
+    mkdir /home/jovyan/Tutorial/output && \
+    mkdir /home/jovyan/Tutorial/Data && \
     mkdir /home/jovyan/Tutorial/files
 
 WORKDIR /home/jovyan/Tutorial
 ENTRYPOINT [ "/bin/bash", "-c"]
-RUN conda env create -f -p2 environment.yaml && \
+RUN conda env create -n p2 -f environment.yml && \
     conda clean -a -y
 ENV PATH /opt/conda/envs/p2/bin:$PATH
 ENV CONDA_DEFAULT_ENV p2
 ENV CONDA_PREFIX /opt/conda/envs/p2
 
 RUN pip install mne nibabel nitime pysurfer matplotlib jupyterlab nilearn pandas && \
-    /home/jovyan/Tutorial && \
-    mkdir /home/jovyan/Tutorial/output && \
-    mkdir /home/jovyan/Tutorial/Data
+    chown -R jovyan: /home/jovyan/Tutorial
 
-RUN chown -R jovyan: /home/jovyan/Tutorial
 USER jovyan
 WORKDIR /home/jovyan/Tutorial
