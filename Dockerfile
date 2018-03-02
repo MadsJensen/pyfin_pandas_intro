@@ -11,7 +11,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN git clone https://github.com/MadsJensen/pyfin_pandas_intro.git \
-    /home/jovyan//Tutorial && \
+    /home/jovyan/Tutorial && \
     mkdir /home/jovyan/Tutorial/output && \
     mkdir /home/jovyan/Tutorial/Data && \
     mkdir /home/jovyan/Tutorial/files
