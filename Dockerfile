@@ -13,8 +13,7 @@ RUN apt-get update && \
 RUN git clone https://github.com/MadsJensen/pyfin_pandas_intro.git \
     /home/jovyan/Tutorial && \
     mkdir /home/jovyan/Tutorial/output && \
-    mkdir /home/jovyan/Tutorial/Data && \
-    mkdir /home/jovyan/Tutorial/files
+    mkdir /home/jovyan/Tutorial/Data
 
 COPY ./files/ign.csv /home/jovyan/Tutorial/Data/ign.csv
 
