@@ -16,6 +16,8 @@ RUN git clone https://github.com/MadsJensen/pyfin_pandas_intro.git \
     mkdir /home/jovyan/Tutorial/Data && \
     mkdir /home/jovyan/Tutorial/files
 
+COPY ./files/ign.csv /home/jovyan/Tutorial/Data/ign.csv
+
 WORKDIR /home/jovyan/Tutorial
 ENTRYPOINT [ "/bin/bash", "-c"]
 RUN conda env create -n p2 -f environment.yml && \
